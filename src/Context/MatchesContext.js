@@ -1,53 +1,71 @@
+import { useState,useReducer, createContext } from 'react';
 import axios from 'axios';
-import { useState, createContext } from 'react';
-import { GiConsoleController } from 'react-icons/gi';
+import { SortByLeague,AddTopLeagues } from '../Helpers/MatchesSort';
 
 const MatchesContext = createContext({
     isLoading: false,
     getAllMatches: () => {},
     matches: [],
-    favourites:[]
-  });
-  export const MatchesContextProvider = props => {
+    leagues:[],
+});
+
+export const MatchesContextProvider = props => {
     const [matches, setMatches] = useState([]);
-    const [favourites, setFavourites] = useState([]);
+    const [leagues, setLeagues] = useState([]);
+    const [fav,setFav]= useState([]);
     const [isLoading, setIsLoading] = useState(false);
-  const APIKEY = "8d42bd7a0aa39ec46b432d5c0358a16e06effaff8adf033e0db8a9607de68772";
 
-    const AddFavourite = (matchID) =>{
-      favourites.push(matchID)
-      setFavourites({favourites: favourites})
-    }
+    const APIKEY = "749b6abefe2f1f0cb0221c4c8ba9ea33ab1e606cd719ec6463735e2f260eaedc";
+    
     const getAllMatches = async (date) => {
-      try {
+      console.log("hello")
         setIsLoading(true);
-        console.log(isLoading)
-        const res = await fetch(`https://apiv3.apifootball.com/?action=get_events&from=${date}&to=${date}&APIkey=${APIKEY}`);
-        const data = await res.json();
-
-        
+        const res = await axios.get(`https://apiv3.apifootball.com/?action=get_events&from=${date}&to=${date}&APIkey=${APIKEY}`);
+        const data = res.data;
         setMatches(data);
         setIsLoading(false);
-      } catch (err) {
-        console.log(err.message);
-        setIsLoading(false);
-      }
     };
     const getLiveMatches = async(date) => {
-        try {
           setIsLoading(true);
-          const res = await fetch(`https://apiv3.apifootball.com/?action=get_events&match_live=1&from=${date}&to=${date}&APIkey=${APIKEY}`);
-         const data = await res.json();
-         
+          const res = await axios.get(`https://apiv3.apifootball.com/?action=get_events&match_live=1&from=${date}&to=${date}&APIkey=${APIKEY}`);
+          const data = res.data;
           setMatches(data);
           setIsLoading(false);
-        } catch (err) {
-          console.log(err.message);
-          setIsLoading(false);
-        }
       };
-    /*
-    const getCompetition = async league => {
+
+    const  getFavMatches =  () => {
+        setIsLoading(true);
+        const newData = matches.filter(match=>fav.includes(match.match_id))
+        setMatches(newData);
+        setIsLoading(false);
+    };
+    
+    const getLeagues = async() => {
+        const res = await axios.get(`https://apiv3.apifootball.com/?action=get_leagues&APIkey=${APIKEY}`);
+        const data = res.data;
+        setLeagues(data)
+      };
+    const  FavMatchesOptions = (option,match) => {
+      let favourites= [...fav]
+      console.log("hello")
+      if(option==="add"){
+        favourites.push(match);
+      }
+      else{
+        const index =favourites.indexOf(match);
+        favourites.splice(index, 1);
+      }
+      setFav(favourites)
+    };
+
+    const  FilterByLeague = async(leagueID,date) => {
+      setIsLoading(true);
+      const res = await axios.get(`https://apiv3.apifootball.com/?action=get_events&from=${date}&to=${date}&league_id=${leagueID}&APIkey=${APIKEY}`);
+      const data = res.data;
+      setMatches(data);
+      setIsLoading(false);
+    };
+    /*const getCompetition = async league => {
         try {
           if (region === 'all') {
             getAllCountries();
@@ -109,10 +127,15 @@ const MatchesContext = createContext({
           value={{
             getAllMatches,
             getLiveMatches,
+            getFavMatches,
+            getLeagues,
+            FavMatchesOptions,
+            FilterByLeague,
             matches,
+            leagues,
             isLoading,
-            AddFavourite,
-            favourites
+            fav,
+
           }}
         >
           {props.children}

@@ -4,12 +4,30 @@ import './index.css';
 import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
 import { MatchesContextProvider } from './Context/MatchesContext'
+import {ThemeProvider} from 'styled-components'
 
+const theme = {
+  colors:{
+    graphit:"#1e2024",
+    grey:"#393b40",
+    blue:"#2e8bff",
+    smokeWhite:"#c1c3c7",
+    smokeBlue:"rgba(46, 139, 255,0.3)",
+  },
+  fonts:{
+    robotoFont:"Roboto Condensed, sans-serif",
+    asapCondensedFont:"Asap Condensed, sans-serif",
+    robotoCondensedFont:"Roboto Condensed, sans-serif",
+  }
+}
 ReactDOM.render(
   <React.StrictMode>
     <MatchesContextProvider>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
     </MatchesContextProvider>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from '../Header/HeaderContainer/Header'
-import Matches from '../Body/Matches/MatchesContainer/Matches'
-import UseMatches from '../../Hooks/UseMatches';
+import Header from '../Header/Header'
+import Matches from '../../pages/Matches/Matches'
 import { AppContainer } from './App.styled';
 function App() {
  
