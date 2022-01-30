@@ -9,7 +9,7 @@ function App() {
   getLeagues()
  },[])
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <AppContainer>
         <Routess/>
       </AppContainer>
