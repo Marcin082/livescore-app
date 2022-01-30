@@ -14,8 +14,8 @@ const Weekday = ({OnClickHandler,date,activeDay}) => {
         }
     }
     return (
-        <DateLink style ={activeStyle({'borderBottom':`3px solid #2e8bff`})} 
-            onClick={()=>OnClickHandler(day)} to="/matches/">
+        <DateLink style ={activeStyle({'borderBottom':`3px solid ${({ theme: { colors } }) => colors.graphit};`})} 
+            onClick={()=>OnClickHandler(day)} to="/">
         <WeekdayContainer style ={dateformat(day) === dateformat(today)?{
                 'width': '160px',
                 

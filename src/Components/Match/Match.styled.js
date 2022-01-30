@@ -1,18 +1,19 @@
 import styled, { keyframes } from "styled-components";
 import { AiOutlineStar } from 'react-icons/ai';
 import { AiFillStar } from 'react-icons/ai';
-
+import {Link} from 'react-router-dom'
 export const MatchCard = styled.div`
     background-color: ${({ theme: { colors } }) => colors.grey};
     height:50px;
     align-items: center;
-    width:100%;
+    width:95%;
     margin-top:6px;
     border-radius: 1px;
     font-family: ${({ theme: { fonts } }) => fonts.robotoCondensedFont};
     -webkit-box-shadow: 0px 5px 10px 4px rgba(8, 10, 21, 1);
     -moz-box-shadow: 0px 5px 10px 4px rgba(8, 10, 21, 1);
     box-shadow: 0px 5px 10px 4px rgba(8, 10, 21, 1);
+    margin:0 auto;
     &:hover{
         background-color:#c1c3c7 !important;
         cursor:pointer;
@@ -49,23 +50,8 @@ export const Centered = styled.div`
     gap:30px;
     align-items: center;
     margin-top: 6px;
-    article:first-child{
-        display: flex;
-        justify-content: flex-end;
-        
-    }
-    article{
-        display: flex;
-        flex:6; 
-        gap:10px;
-        align-items:center;
-        color:${({ theme: { colors } }) => colors.smokeWhite};
-        padding: 0;
-        margin:0;
-        ${MatchCard}:hover &{
-        color: ${({ theme: { colors } }) => colors.graphit};
-        }
-    }
+    
+    
     section{
         display: flex;
         align-items:center;
@@ -80,6 +66,7 @@ export const Centered = styled.div`
     div{
         display: flex;
         align-items:center;
+        gap:2px;
     }
     span{
         position:absolute;
@@ -92,6 +79,40 @@ export const Centered = styled.div`
     }
     
 `
+export const NameAndLogo = styled.div`
+   display: flex;
+        flex:6; 
+        gap:10px;
+        align-items:center;
+        color:${({ theme: { colors } }) => colors.smokeWhite};
+        padding: 0;
+        margin:0;
+        ${MatchCard}:hover &{
+        color: ${({ theme: { colors } }) => colors.graphit};
+        }
+    &:first-child{
+    display: flex;
+    justify-content: flex-end;
+    }
+    &:hover{
+        color: ${({ theme: { colors } }) => colors.blue} !important;
+        font-weight:600 !important;
+    }
+`
+   
+
+export const Date  = styled.span`
+    position:absolute;
+    font-size:15px;
+    margin-top:15px;
+    margin-left:10px;
+    margin-right:auto;
+    color:${({ theme: { colors } }) => colors.smokeWhite};
+    ${MatchCard}:hover &{
+        color: black;
+    }
+    
+`  
 export const Scores = styled.p`
    font-size:24px;
    flex:2;
@@ -102,6 +123,7 @@ export const ClubLogo = styled.img`
     width:35px;
     height:35px;
     object-fit: cover;
+    padding:0 5px;
 `
 export const Line = styled.div`
     position:absolute;
@@ -120,7 +142,7 @@ export const Line = styled.div`
     }
     
 `
-const Pulse = keyframes`
+export const Pulse = keyframes`
   0% {
     opacity:1.7;
     transform: scale(1);
@@ -153,7 +175,10 @@ export const LiveContainer = styled.div`
     animation: ${Pulse} 2s infinite ;
     
 `
-
-
+export const MatchLink = styled(Link)`
+   text-decoration: none;
+z-index:1
+    
+`
 
 

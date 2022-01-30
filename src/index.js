@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './Components/App/App';
+import App from './App/App';
 import reportWebVitals from './reportWebVitals';
 import { MatchesContextProvider } from './Context/MatchesContext'
 import {ThemeProvider} from 'styled-components'
 
 const theme = {
   colors:{
-    graphit:"#1e2024",
+    graphit:"#121212",
+    dark:"#1b1b1c",
     grey:"#393b40",
-    blue:"#2e8bff",
+    blue:"#4673FE",
     smokeWhite:"#c1c3c7",
     smokeBlue:"rgba(46, 139, 255,0.3)",
   },

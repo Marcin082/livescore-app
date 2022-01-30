@@ -3,7 +3,7 @@ const MyLeagues = [1,19,28,25,27,24,372,3,4,683,633,152,302,207,175,168,259]
 export const SortByLeague =(Matches)=>{
     const LeaguesMatches = []
     const ids=[]
-    console.log(Matches)
+
 
     for(let i=0;i<Matches.length;i++){
         if(!ids.includes(Matches[i].league_id)){
@@ -11,8 +11,7 @@ export const SortByLeague =(Matches)=>{
             ids.push(Matches[i].league_id)
         }
     }
-    console.log(LeaguesMatches)
-    console.log(ids)
+
     function Comparator(a, b) {
         if (a[0].country_name < b[0].country_name) return -1;
         if (a[0].country_name > b[0].country_name) return 1;
@@ -40,7 +39,7 @@ export const AddTopLeagues =(Matches)=>{
             ids.push(Matches[i].country_id)
         }
     }
-console.log(LeaguesMatches)
+
     function Comparator(a, b) {
         if (a[0].country_name < b[0].country_name) return -1;
         if (a[0].country_name > b[0].country_name) return 1;
@@ -48,7 +47,7 @@ console.log(LeaguesMatches)
     }
          
     LeaguesMatches.sort(Comparator)
-    console.log(LeaguesMatches)
+
     LeaguesMatches.map((matches) => {
         if((MyCountries.map(String)).includes(matches[0].country_id)){ 
             const index =LeaguesMatches.indexOf(matches);
@@ -57,6 +56,6 @@ console.log(LeaguesMatches)
         }
 
     })
-    console.log(LeaguesMatches)
+
     return LeaguesMatches
 }

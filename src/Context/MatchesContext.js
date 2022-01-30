@@ -1,28 +1,49 @@
-import { useState,useReducer, createContext } from 'react';
+import { useState,createContext } from 'react';
 import axios from 'axios';
-import { SortByLeague,AddTopLeagues } from '../Helpers/MatchesSort';
+
 
 const MatchesContext = createContext({
     isLoading: false,
     getAllMatches: () => {},
     matches: [],
     leagues:[],
+    player:null
 });
 
 export const MatchesContextProvider = props => {
     const [matches, setMatches] = useState([]);
+    const [leagueMatches, setLeagueMatches] = useState([]);
+    const [comments, setComments] = useState(null);
+    const [team, setTeam] = useState(null);
+    const [league, setLeague] = useState(null);
+    const [country, setCountry] = useState(null);
+    const [player, setPlayer] = useState(null);
+    const [logos, setLogos] = useState(null);
+    const [h2h, setH2H] = useState(null);
+    const [standings, setStandings] = useState(null);
+    const [activeMatch, setActiveMatch] = useState(0);
     const [leagues, setLeagues] = useState([]);
     const [fav,setFav]= useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const APIKEY = "749b6abefe2f1f0cb0221c4c8ba9ea33ab1e606cd719ec6463735e2f260eaedc";
+    const APIKEY = "9a0e5328b84de7d7763f9bc32f2995d367b0cb8083689b9f6c5d9c9df542e509";
     
     const getAllMatches = async (date) => {
       console.log("hello")
         setIsLoading(true);
-        const res = await axios.get(`https://apiv3.apifootball.com/?action=get_events&from=${date}&to=${date}&APIkey=${APIKEY}`);
-        const data = res.data;
-        setMatches(data);
+        
+          const res = await axios.get(`https://apiv3.apifootball.com/?action=get_events&from=${date}&to=${date}&APIkey=${APIKEY}`);
+          const data = res.data;
+          console.log(data)
+          setMatches(data);
+        setIsLoading(false);
+    };
+    const getMatchesById = async (id,FromDate,ToDate,action) => {
+        setIsLoading(true);
+          const res = await axios.get(`https://apiv3.apifootball.com/?action=get_events&from=${FromDate}&to=${ToDate}&${action}=${id}&APIkey=${APIKEY}`);
+          const data = res.data
+          console.log(data)
+          setLeagueMatches(data);
         setIsLoading(false);
     };
     const getLiveMatches = async(date) => {
@@ -39,12 +60,77 @@ export const MatchesContextProvider = props => {
         setMatches(newData);
         setIsLoading(false);
     };
-    
+    const  getMatch =  async(id) => {
+      setIsLoading(true);
+      const res = await axios.get(`https://apiv3.apifootball.com/?action=get_events&match_id=${id}&APIkey=${APIKEY}`);
+      const data = res.data;
+      const match=data[0]
+      setActiveMatch(match);
+      setIsLoading(false);
+    };
+    const  getH2H =  async(firstId,secondId) => {
+      setIsLoading(true);
+      const res = await axios.get(`https://apiv3.apifootball.com/?action=get_H2H&firstTeamId=${firstId}&secondTeamId=${secondId}&APIkey=${APIKEY}`);
+      const data = res.data;
+      setH2H(data);
+      setIsLoading(false);
+    };
+
+    const  getStandings =  async(id) => {
+      console.log("reerefr")
+      try {
+      setIsLoading(true);
+      const res = await axios.get(`https://apiv3.apifootball.com/?action=get_standings&league_id=${id}&APIkey=${APIKEY}`)
+      const data = res.data;
+      setStandings(data);
+      setIsLoading(false);
+      }
+      catch (err) {
+        console.log(err.message);
+      }
+      
+    };
+    const getTeam =  async(id) => {
+      const res = await axios.get(`https://apiv3.apifootball.com/?action=get_teams&team_id=${id}&APIkey=${APIKEY}`);
+      const data = res.data;
+      const team=data[0]
+      console.log(team)
+      setTeam(team)
+  };
+    const getCountry =  async(id) => {
+      const res = await axios.get(`https://apiv3.apifootball.com/?action=get_countries&APIkey=${APIKEY}`);
+      const data = res.data;
+      const country = data.filter((country)=>country.country_name===id)
+      setCountry(country)
+  };
+    const getPlayer =  async(id) => {
+    setIsLoading(true);
+    const res = await axios.get(`https://apiv3.apifootball.com/?action=get_players&player_id=${id}&APIkey=${APIKEY}`);
+    const data = res.data;
+    console.log(data[0])
+    setPlayer(data[0]);
+    setIsLoading(false);
+    };
+    const getComments =  async(id) => {
+      setIsLoading(true);
+      const res = await axios.get(`https://apiv3.apifootball.com/?action=get_live_odds_commnets&match_id=${id}&APIkey=${APIKEY}`);
+      const data = res.data;
+      setComments(data);
+      setIsLoading(false);
+      };
     const getLeagues = async() => {
         const res = await axios.get(`https://apiv3.apifootball.com/?action=get_leagues&APIkey=${APIKEY}`);
         const data = res.data;
         setLeagues(data)
       };
+    const getLeague = async(id) => {
+      setIsLoading(true);
+        const res = await axios.get(`https://apiv3.apifootball.com/?action=get_leagues&league_id=${id}&APIkey=${APIKEY}`);
+        const data = res.data;
+        const league = data.filter(league=>league.league_id===id)
+        setLeague(league)
+        setIsLoading(false);
+    };
     const  FavMatchesOptions = (option,match) => {
       let favourites= [...fav]
       console.log("hello")
@@ -57,7 +143,7 @@ export const MatchesContextProvider = props => {
       }
       setFav(favourites)
     };
-
+    
     const  FilterByLeague = async(leagueID,date) => {
       setIsLoading(true);
       const res = await axios.get(`https://apiv3.apifootball.com/?action=get_events&from=${date}&to=${date}&league_id=${leagueID}&APIkey=${APIKEY}`);
@@ -65,63 +151,14 @@ export const MatchesContextProvider = props => {
       setMatches(data);
       setIsLoading(false);
     };
-    /*const getCompetition = async league => {
-        try {
-          if (region === 'all') {
-            getAllCountries();
-          } else {
-            setIsLoading(true);
+    const getLeagueLogo = async () => {
+      const res = await axios.get(`https://apiv3.apifootball.com/?action=get_leagues&APIkey=${APIKEY}`);
+      const data = res.data;
+      console.log(data)
+      setLogos(data);
     
-            const res = await axios.get(
-              `https://restcountries.eu/rest/v2/region/${region}`
-            );
-            const data = res.data;
-            const formattedRegion = region.replace(/\b\w/g, c => c.toUpperCase());
+};
     
-            setSelectedRegion(formattedRegion);
-            setCountries(data);
-            setSearchValues('');
-            setSearchList([]);
-            setIsLoading(false);
-          }
-        } catch (err) {
-          console.log(err.message);
-    
-          setIsLoading(false);
-        }
-      };
-      
-    
-      const searchCountry = values => {
-        setSearchValues(values);
-    
-        if (values) {
-          const filteredSearch = countries.filter(country =>
-            country.name.toLowerCase().includes(values.toLowerCase())
-          );
-    
-          setSearchList(filteredSearch);
-        } else {
-          setSearchList([]);
-        }
-      };
-    
-      const getBorderCountries = async code => {
-        try {
-          const res = await axios.get(
-            `https://restcountries.eu/rest/v2/alpha/${code}`
-          );
-          const data = res.data;
-    
-          const countriesData = { name: data.name, code: data.alpha3Code };
-    
-          return countriesData;
-        } catch (err) {
-          console.log(err.message);
-          setIsLoading(false);
-        }
-      };
-    */
       return (
         <MatchesContext.Provider
           value={{
@@ -129,13 +166,33 @@ export const MatchesContextProvider = props => {
             getLiveMatches,
             getFavMatches,
             getLeagues,
+            getMatch,
+            getPlayer,
+            getH2H,
+            getStandings,
+            getComments,
+            getLeague,
+            getCountry,
+            setLeagueMatches,
             FavMatchesOptions,
             FilterByLeague,
+            getMatchesById,
+            getLeagueLogo,
+            getTeam,
+            league,
+            team,
+            logos,
+            leagueMatches,
             matches,
+            player,
             leagues,
             isLoading,
             fav,
-
+            h2h,
+            activeMatch,
+            standings,
+            comments,
+            country
           }}
         >
           {props.children}
