@@ -6,7 +6,7 @@ import DetailsPage from '../pages/Details/DetailsPage';
 
 const Routess = () => {
     return (
-        <Routes>
+        <Routes basename={process.env.PUBLIC_URL}>
           <Route path="/" element={<Matches />}>
           </Route>
           <Route exact path="/match/:id" element={<Match />}>
