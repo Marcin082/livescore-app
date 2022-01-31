@@ -1,9 +1,13 @@
 const thirtyOne = [4,6,7,9,11]
     
 export const CalendarFunctions = (activeDay,firstDay,screenWidth) =>{
-    console.log(activeDay.getMonth())
+    console.log(activeDay)
+    activeDay.setYear(2022)
     if(activeDay.getDate()>=1 && activeDay.getDate()<=3 &&  activeDay.getMonth() ===0){
         firstDay.setDate(activeDay.getDate() - 5)
+    }
+    if(activeDay.getDate()>=1 && activeDay.getDate()<=3 &&  activeDay.getMonth() ===1){
+        firstDay.setDate(activeDay.getDate() - 4)
     }
     if(activeDay.getDate()>=1 && activeDay.getDate()<=3 &&  !thirtyOne.includes(activeDay.getMonth()) ){
     firstDay.setDate(activeDay.getDate() -4)
@@ -38,6 +42,7 @@ export const CalendarFunctions = (activeDay,firstDay,screenWidth) =>{
         dates.shift()
         dates.pop()
     }
+    console.log(dates)
     return dates
 }
 

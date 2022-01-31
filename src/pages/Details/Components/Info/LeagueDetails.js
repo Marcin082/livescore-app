@@ -2,47 +2,48 @@ import React, { useState } from 'react';
 import UseMatches from '../../../../Hooks/UseMatches'
 import { LeagueDetailsContainer,LeagueLogo,Name,Country } from './LeagueDetails.styled';
 
-const Info = ({ID}) => {
+const Info = ({playerID,teamID}) => {
     const{league,team,player} = UseMatches()
-   
+    const DefaultClubLogo="https://www.precisionpass.co.uk/wp-content/uploads/2018/03/default-team-logo.png"
+    const DefaultFace = "https://us.123rf.com/450wm/apoev/apoev2107/apoev210700046/171681529-default-avatar-photo-placeholder-gray-profile-picture-icon-man-in-t-shirt.jpg?ver=6"
     let SRC =null
     let NAME =null
     let COUNTRY =null
-    console.log(player)
+    console.log(team)
+    
 
-    if(ID){
+    if(playerID){
+        if(player){
+            SRC =player.player_image?player.player_image:DefaultFace
+            NAME = player.player_name
+            COUNTRY = "" 
+        }
+           
+    }
+    if(teamID){
         if(team){
-            SRC =team.team_badge
+            console.log(teamID)
+            SRC =team.team_badge?team.team_badge:DefaultClubLogo
             NAME = team.team_name
             COUNTRY = ""
         }
-        
     }
-    if(player){
-        SRC =player.player_image
-        NAME = player.player_name
-        COUNTRY = ""    
-    }
-    else if(league){
+    if(league){
         if(league.length>0){
             SRC =league[0].league_logo
-         NAME = league[0].league_name
-         COUNTRY = league[0].country_name
+            NAME = league[0].league_name
+            COUNTRY = league[0].country_name
         }
         
     }
     console.log(SRC,NAME,COUNTRY)
     return (
         <LeagueDetailsContainer>
-            
-            <>
-            {SRC && <LeagueLogo src={SRC}/>}
+            <LeagueLogo src={SRC}/>
             <div>
                <Name>{NAME}</Name> 
                <Country>{COUNTRY}</Country>
             </div>
-            </>
-           
         </LeagueDetailsContainer>
     );
 };

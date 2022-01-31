@@ -68,6 +68,6 @@ export const MatchDetails = styled.div`
 
 export const Logo = styled.img`
     width:130px;
-    height:130px;
-    object-fit: cover;
+    max-height:150px;
+    
 `

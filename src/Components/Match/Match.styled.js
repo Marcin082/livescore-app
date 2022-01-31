@@ -94,22 +94,18 @@ export const NameAndLogo = styled.div`
     display: flex;
     justify-content: flex-end;
     }
-    &:hover{
-        color: ${({ theme: { colors } }) => colors.blue} !important;
-        font-weight:600 !important;
-    }
 `
    
 
 export const Date  = styled.span`
     position:absolute;
     font-size:15px;
-    margin-top:15px;
-    margin-left:10px;
-    margin-right:auto;
+    margin-top:17px;
+    left:40px;
     color:${({ theme: { colors } }) => colors.smokeWhite};
     ${MatchCard}:hover &{
-        color: black;
+        color: ${({ theme: { colors } }) => colors.graphit} !important;
+        font-weight:500;
     }
     
 `  
@@ -120,9 +116,8 @@ export const Scores = styled.p`
    padding: 0; 
 `
 export const ClubLogo = styled.img`
-    width:35px;
-    height:35px;
-    object-fit: cover;
+    max-width:35px;
+    max-height:35px;
     padding:0 5px;
 `
 export const Line = styled.div`
@@ -177,8 +172,16 @@ export const LiveContainer = styled.div`
 `
 export const MatchLink = styled(Link)`
    text-decoration: none;
-z-index:1
-    
+    z-index:1;
 `
+export const ClubLink = styled(Link)`
+   text-decoration: none;
+   color:inherit;
+   &:hover{
+    color:${({ theme: { colors } }) => colors.blue} !important;
+    font-weight:700 !important;
+   }
+`
+
 
 

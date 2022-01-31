@@ -8,38 +8,43 @@ import RoundMatches from './Components/RoundMatches/RoundMatches';
 import LeagueDetails from './Components/Info/LeagueDetails';
 import Players from './Components/Players/Players';
 import{BackArrow} from '../Match/Match.styled'
-import { Link } from 'react-router-dom';
 import setDates from '../../Helpers/SetMatchDates.js';
 import Loading from '../../Components/LoadingPage/Loading'
+import LoadingMatches from '../../Components/LoadingMatches/LoadingMatches.js';
 
 const DetailsPage = () => {
-    let { id,ID,Id } = useParams();
+    let { leagueID,teamID,playerID } = useParams();
     const navigate  = useNavigate();
-    const [activeOption,setActiveOption] = useState(Id?"Results":"Standings") 
-    const{isLoading,getStandings,getLeague,player,standings,leagueMatches,getMatchesById,getTeam,team,getLeagueLogo} = useMatches();
+    const [activeOption,setActiveOption] = useState("Standings") 
+    const{isLoading,getPlayer,getStandings,getLeague,player,standings,leagueMatches,getMatchesById,getTeam,team,getLeagueLogo} = useMatches();
     const today = new Date();
     const activeYear = today.getFullYear()
     const todayFormat = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
     const dates = setDates(activeOption,activeYear,todayFormat)
     const FromDate = dates[0]
     const ToDate = dates[1]
-    console.log(player)
+    console.log(standings)
     console.log(ToDate)
     useEffect(()=>{
-        if(id){
-            getStandings(id)
-            getMatchesById(id,FromDate,ToDate,"league_id")
+        getStandings(leagueID)
+    },[])
+    useEffect(()=>{
+        getPlayer(playerID)
+        
+        if(leagueID){
+            
+            getMatchesById(leagueID,FromDate,ToDate,"league_id")
         }
-        if(Id && player){
+        if(playerID && player){
             getMatchesById(player.team_key,FromDate,ToDate,"team_id")
         }
         else{
-            getMatchesById(ID,FromDate,ToDate,"team_id")
+            getMatchesById(teamID,FromDate,ToDate,"team_id")
         }
-        getTeam(ID)
-        getLeague(id)
+        getTeam(teamID)
+        getLeague(leagueID)
 
-    },[id,ID,activeOption])
+    },[leagueID,teamID,activeOption,playerID])
     console.log(leagueMatches)
     let component = null;
     
@@ -63,7 +68,7 @@ const DetailsPage = () => {
             }
             break;
         case "Players":
-            component =  <Players/>
+            component =  <Players FromDate={FromDate} ToDate={ToDate} setActiveOption={setActiveOption}/>
             break;
         default:
             component =  <LeagueStandings />    
@@ -72,9 +77,9 @@ const DetailsPage = () => {
         <LeagueContainer>
             <div>
             <BackArrow onClick={()=>GoBackHandler()}/>
-            <LeagueDetails ID={ID}/>
-            <Navbar ID={ID} Id={Id} activeOption={activeOption} setActiveOption={setActiveOption}/>
-            {isLoading?<Loading/>:component}
+            <LeagueDetails playerID ={playerID} teamID={teamID}/>
+            <Navbar teamID={teamID} playerID={playerID} activeOption={activeOption} setActiveOption={setActiveOption}/>
+            {!playerID && (isLoading?((activeOption==="Upcoming"||activeOption==="Results")?<LoadingMatches Gap='20'/>:<Loading/>):component)}
             </div>
             
         </LeagueContainer>

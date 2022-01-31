@@ -8,19 +8,24 @@ import { CalendarFunctions } from '../../Helpers/CalendarFunctions';
 import  Leagues  from './Components/Leagues/Leagues';
 import Input from './Components/Input/Input'
 import Loading from '../../Components/LoadingPage/Loading'
+import LoadingMatches from '../../Components/LoadingMatches/LoadingMatches';
 
 const Matches = () => {
     const today = new Date();
     const firstDay = new Date();
     const[activeDay,setActiveDay] = useState(today)
     const[screenWidth,setScreenWidth] = useState(window.innerWidth)
+    const[showResults,setShowResults]= useState(true)
     const dateformat  = activeDay.getFullYear() + '-' + (activeDay.getMonth() + 1) + '-' + activeDay.getDate()
     const{getAllMatches,isLoading,getLeagues,getLeagueLogo} = useMatches();
-   
+    console.log(today)
+    console.log(activeDay)
+
     React.useEffect(() => {
         function handleResize() {
           setScreenWidth(window.innerWidth)
         }
+        console.log(screenWidth)
         window.addEventListener('resize', handleResize)
     })
 
@@ -38,20 +43,20 @@ const Matches = () => {
         }
     }
     console.log(activeDay)
-    
+   
     return (
     <>
         
-        <MatchesContainer>
-           <Leagues dateformat = {dateformat}/>
+        <MatchesContainer onClick={()=>setShowResults(false)}>
+           {screenWidth>800 && <Leagues dateformat = {dateformat}/>}
             <Matchescard>
-            <Input/>
+            <Input showResults={showResults} setShowResults={setShowResults}/>
             <Calendar dateformat={dateformat} dates = {dates} OnClickHandler={OnClickHandler} activeDay={activeDay} />
             <Navigation dateformat={dateformat} />
             {isLoading?
-            <Loading/>
+             <LoadingMatches Gap='6'/>
             :
-            <MatchList /> 
+            <MatchList />
             }
             </Matchescard>
         </MatchesContainer>

@@ -12,11 +12,9 @@ export const Input = styled.input`
     color:${({ theme: { colors } }) => colors.smokeWhite};
 
     @media (min-width: 1068px) {
-        width:350px;
+        width:700px;
     }
-    @media (max-width: 800px) {
-        width:100%;
-    }
+
     
 `
 export const InputCard = styled.div`
@@ -44,13 +42,16 @@ export const Name = styled.span`
 
 export const Results = styled.div`
     position:absolute;
-    max-height:335px;
-    width:515.4px;
+    height:335px;
+    width:517px;
     margin: 377px 77px 0 0 ;
     overflow-y: scroll;
     background-color: ${({ theme: { colors } }) => colors.grey};
     color:${({ theme: { colors } }) => colors.smokeWhite};
     z-index:5;
+    @media (min-width: 1068px) {
+        width:715.4px;
+    }
 `
 export const Search = styled.button`
     padding:5px 15px;

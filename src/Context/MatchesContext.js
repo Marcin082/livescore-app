@@ -36,7 +36,7 @@ export const MatchesContextProvider = props => {
           const data = res.data;
           console.log(data)
           setMatches(data);
-        setIsLoading(false);
+          setIsLoading(false);
     };
     const getMatchesById = async (id,FromDate,ToDate,action) => {
         setIsLoading(true);
@@ -107,8 +107,13 @@ export const MatchesContextProvider = props => {
     setIsLoading(true);
     const res = await axios.get(`https://apiv3.apifootball.com/?action=get_players&player_id=${id}&APIkey=${APIKEY}`);
     const data = res.data;
-    console.log(data[0])
-    setPlayer(data[0]);
+    console.log(data)
+    if(data[1]){
+      setPlayer(data[1]);
+    }
+    else{
+      setPlayer(data[0]);
+    }
     setIsLoading(false);
     };
     const getComments =  async(id) => {

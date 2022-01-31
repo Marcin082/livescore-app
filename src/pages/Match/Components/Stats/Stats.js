@@ -1,6 +1,7 @@
 import React from 'react';
 import useMatches from '../../../../Hooks/UseMatches'
 import { StatsContiner,Bars,StatCard,Numbers, Type,FirstBar, SecondBar } from './Stats.styled';
+import {Alert} from '../../Components/Comments/Comments.styled'
 
 const Stats = () => {
     const{activeMatch} = useMatches();
@@ -14,8 +15,9 @@ const Stats = () => {
     }
     
     return (
-        <>
-        {stats.length>1 && <StatsContiner>
+        
+        <StatsContiner>{stats.length>1 ?
+            <>
             { stats.map((stat)=>{
                 let { home: homeValue,away: awayValue,type:statType } = stat;
                 if(stat){
@@ -42,9 +44,9 @@ const Stats = () => {
                 )  
                 }
                 
-            })}
-        </StatsContiner>}
-        </>
+            })}</>:
+        <Alert>This League has no Stats</Alert>}
+        </StatsContiner>
     );
 };
 

@@ -8,7 +8,6 @@ export const LeagueNav = styled.div`
     background-color:#1f2024;
     color:${({ theme: { colors } }) => colors.smokeWhite};
     width:200px;
-    height:2000px;
     padding:5px 0px 15px 0px;
     display: flex;
     flex-direction: column;
@@ -85,7 +84,7 @@ export const LeaguesBox = styled.div`
    
 ` 
 export const Logo = styled.div`
-    width:140px;
+    width:170px;
     margin:0 auto;
     display:flex;
     align-items:center;

@@ -11,11 +11,11 @@ const Routess = () => {
           </Route>
           <Route exact path="/match/:id" element={<Match />}>
           </Route>
-          <Route exact path="/league/:id" element={<DetailsPage/>}>
+          <Route exact path="/league/:leagueID" element={<DetailsPage/>}>
           </Route>
-          <Route exact path="/team/:ID" element={<DetailsPage/>}>
+          <Route exact path="/team/:teamID" element={<DetailsPage/>}>
           </Route>
-          <Route exact path="/player/:Id" element={<DetailsPage/>}>
+          <Route exact path="/player/:playerID" element={<DetailsPage/>}>
           </Route>
         </Routes>
     );

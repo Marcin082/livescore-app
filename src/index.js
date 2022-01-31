@@ -12,6 +12,7 @@ const theme = {
     dark:"#1b1b1c",
     grey:"#393b40",
     blue:"#4673FE",
+    lightGrey:"#656769",
     smokeWhite:"#c1c3c7",
     smokeBlue:"rgba(46, 139, 255,0.3)",
   },

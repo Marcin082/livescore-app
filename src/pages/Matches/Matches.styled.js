@@ -11,6 +11,7 @@ export const MatchesContainer = styled.div`
 
 export const Matchescard = styled.div`
     display:flex;
+    width:100%;
     flex-direction:column;
     background-color:${({ theme: { colors } }) => colors.graphit};
     border-radius: 0 10px 0 0 ;

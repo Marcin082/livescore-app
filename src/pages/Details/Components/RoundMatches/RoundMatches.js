@@ -2,6 +2,8 @@ import React from 'react';
 import useMatches from '../../../../Hooks/UseMatches'
 import { ResultsContainer,Round ,RoundCard} from './RoundMatches.styled';
 import Match from '../../../../Components/Match/Match'
+import {Alert} from '../../../Match/Components/Comments/Comments.styled'
+
 const RoundMatches = ({activeOption}) => {
     const{leagueMatches} = useMatches();
     
@@ -10,7 +12,8 @@ const RoundMatches = ({activeOption}) => {
     let MatchesByRound = []
         const LeagueMatches = leagueMatches.filter((match)=>match.league_year === "2021/2022")
         const rounds=[]
-    
+        console.log(LeagueMatches)
+
         for(let i = 0; i<LeagueMatches.length;i++){
         if(!rounds.includes(LeagueMatches[i].match_round)){
             MatchesByRound.push(LeagueMatches.filter(match=>match.match_round===LeagueMatches[i].match_round))
@@ -28,10 +31,11 @@ const RoundMatches = ({activeOption}) => {
     else{
         results=MatchesByRound
     }
-    console.log(MatchesByRound)
+    console.log(results)
     return (
         <ResultsContainer>
-            {results && results.map((round,index)=>{
+            {results.length>0 ?
+             results.map((round,index)=>{
                 if(round){
                 return (
                     <RoundCard>
@@ -40,7 +44,7 @@ const RoundMatches = ({activeOption}) => {
                     </RoundCard>
                 )
                 }
-            })}
+            }):<Alert>No data available</Alert>}
         </ResultsContainer>
     );
 };

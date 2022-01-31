@@ -5,7 +5,6 @@ export const LeagueContainer = styled.div`
     height:1800px;
     border-radius:5px;
     margin-top:20px;
-    background-color:  ${({ theme: { colors } }) => colors.grey};
     position: relative;
 `
 export const BackArrow = styled(BiArrowBack)`

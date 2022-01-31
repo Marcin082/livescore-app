@@ -31,5 +31,7 @@ export const Option = styled.button`
     border-bottom:4px solid transparent;
     margin:auto;
     cursor:pointer;
-
+    &:hover{
+        color:white;
+    }
 `

@@ -1,10 +1,10 @@
 import React from 'react';
 import useMatches from '../../../../Hooks/UseMatches'
 import { PlayersContainer,PlayerType,PlayerCard,Number,Name } from './Players.styled';
-
-const Players = () => {
+import {Link} from 'react-router-dom'
+const Players = ({FromDate,ToDate,setActiveOption}) => {
     const{team} = useMatches();
-    let{coaches:coaches,players:players} = team
+    let{players:players} = team
     const teamPlayers = []
     const types=[]
     for(let i=0;i<players.length;i++){
@@ -22,7 +22,7 @@ const Players = () => {
                     <PlayerType>
                     {type[0].player_type}
                     </PlayerType>
-                    <Player players={type}/>
+                    <Player FromDate={FromDate} ToDate={ToDate} setActiveOption={setActiveOption} players={type}/>
                 </>
                 
                 )
@@ -30,17 +30,22 @@ const Players = () => {
         </PlayersContainer>
     );
 };
-const Player = ({players}) => {
+const Player = ({FromDate,ToDate,setActiveOption,players}) => {
+    const {getPlayer,getMatchesById} = useMatches();
     return (
         <>
             {players.map((player)=>{
                 let{player_name:playerName,player_number:playerNumber}= player
-
                 return(
-                <PlayerCard>
+                    <Link style={{
+                        textDecoration:'none',
+                        color:"inherit"
+                    }} to={"/player/"+ player.player_id } onClick={()=>{
+                        getPlayer(player.player_id)
+                        setActiveOption("Results")}}><PlayerCard>
                     <Number>{playerNumber}</Number>
                     <Name>{playerName}</Name>
-                </PlayerCard>
+                </PlayerCard></Link>
                 )
             })}
             

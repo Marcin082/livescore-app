@@ -1,14 +1,19 @@
 # <LiveScore>
 
 ## About
-
+![](src/assets/logo.png)
 The most up-to-date soccer live scores, stats and other info from and more than 800 leagues from all around the world. With LiveScore, you won't miss a single goal ever again. You can check your favourite matches, teams or players, and our notifications will let you know about every important moment of the match.
 
 ## Demo
 
- Here is a working live demo :
+ Here is a working live demo : [https://marcin082.github.io/livescore-app/](https://marcin082.github.io/)livescore-app/)
 
+
+![](src/assets/homePage.png)
+![](src/assets/standings.png)
+![](src/assets/matchPAge.png)
 ## Installation
+
 ### Install Node JS
 Refer to [https://nodejs.org/en/](https://nodejs.org/en/) to install nodejs
 
