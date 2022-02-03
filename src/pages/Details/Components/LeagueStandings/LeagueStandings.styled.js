@@ -1,5 +1,4 @@
-
 import styled from "styled-components";
 export const Container = styled.div`
-    transform:translatey(30px);
-`
+  transform: translatey(30px);
+`;

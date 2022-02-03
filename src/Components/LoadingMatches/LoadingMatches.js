@@ -1,32 +1,36 @@
-import React from 'react';
-import {LoadingContainer, LoadMatch, Name ,Score} from './LoadingMatches.styled';
-import useMatches from '../../Hooks/UseMatches';
+import React from "react";
+import {
+  LoadingContainer,
+  LoadMatch,
+  Name,
+  Score,
+  LoadFragment,
+} from "./LoadingMatches.styled";
 
+const LoadingMatches = ({ Gap }) => {
+  const times = Array.from(Array(20).keys());
 
-const LoadingMatches = ({Gap})=> {
-    const times = Array.from(Array(20).keys())
-    
-    return (
-        <LoadingContainer Gap={Gap}>
-        {times.map(()=>{
-            return (<LoadMatch> 
+  return (
+    <LoadFragment>
+    <LoadingContainer Gap={Gap}>
+      {times.map(() => {
+        return (
+          <LoadMatch>
             <Name>
-                <div></div>
-                <span></span>
-            </Name> 
+              <div></div>
+              <span></span>
+            </Name>
             <Score></Score>
             <Name>
-                <span></span>
-                <div></div>
-                
-            </Name> 
-        </LoadMatch>)
-        })}
-            
-        
-        </LoadingContainer>
-    );
+              <span></span>
+              <div></div>
+            </Name>
+          </LoadMatch>
+        );
+      })}
+    </LoadingContainer>
+    </LoadFragment>
+  );
 };
-
 
 export default LoadingMatches;

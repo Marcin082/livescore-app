@@ -20,6 +20,7 @@ const theme = {
     robotoFont:"Roboto Condensed, sans-serif",
     asapCondensedFont:"Asap Condensed, sans-serif",
     robotoCondensedFont:"Roboto Condensed, sans-serif",
+    FiaraFont:"Fira Sans, sans-serif",
   }
 }
 ReactDOM.render(
