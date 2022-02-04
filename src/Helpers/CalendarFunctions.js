@@ -1,36 +1,30 @@
-const thirtyOne = [4, 6, 7, 9, 11];
+const thirtyOne = [1,4,2, 6, 7, 9, 11];
 
 export const CalendarFunctions = (activeDay, firstDay, screenWidth) => {
-  console.log(activeDay);
+  console.log(activeDay.getMonth() );
   activeDay.setYear(2022);
   if (
     activeDay.getDate() >= 1 &&
     activeDay.getDate() <= 3 &&
     activeDay.getMonth() === 0
   ) {
-    firstDay.setDate(activeDay.getDate() - 5);
-  }
-  if (
-    activeDay.getDate() >= 1 &&
-    activeDay.getDate() <= 3 &&
-    activeDay.getMonth() === 1
-  ) {
     firstDay.setDate(activeDay.getDate() - 4);
   }
-  if (
+  else if (
+    activeDay.getDate() >= 1 &&
+    activeDay.getDate() <= 3 &&
+    activeDay.getMonth() === 2
+  ) {
+    firstDay.setDate(activeDay.getDate() -6);
+  }
+  else if (
     activeDay.getDate() >= 1 &&
     activeDay.getDate() <= 3 &&
     !thirtyOne.includes(activeDay.getMonth())
   ) {
     firstDay.setDate(activeDay.getDate() - 4);
   }
-  if (
-    activeDay.getDate() >= 1 &&
-    activeDay.getDate() <= 3 &&
-    activeDay.getMonth() === 2
-  ) {
-    firstDay.setDate(activeDay.getDate() - 6);
-  } else {
+   else {
     firstDay.setDate(activeDay.getDate() - 3);
   }
   const CheckMonth = () => {

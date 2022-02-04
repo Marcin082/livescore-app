@@ -19,7 +19,7 @@ export const StatCard = styled.div`
   justify-content: center;
   gap: 3px;
   padding: 0 30px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size:13px;
   }
 `;
@@ -48,7 +48,7 @@ export const FirstBar = styled.span`
   height: 20px;
   background-color: ${({ theme: { colors } }) => colors.blue};
   border-radius: 3px 0 0 3px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     height: 13px;
   }
 `;
@@ -57,7 +57,7 @@ export const SecondBar = styled.span`
   width: ${(props) => props.AwayPercentages}%;
   height: 20px;
   border-radius: 0 3px 3px 0;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     height: 13px;
   }
 `;

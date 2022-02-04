@@ -16,11 +16,11 @@ export const WeekdayContainer = styled.div`
     margin: 0 0;
     padding: 0;
     color: ${({ theme: { colors } }) => colors.smokeWhite};
-    @media (max-width: 400px) {
+    @media (max-width: 430px) {
     font-size: 14px !important;
   }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 9px;
     padding: 3px 0px;
   }

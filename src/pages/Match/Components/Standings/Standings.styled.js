@@ -14,7 +14,6 @@ export const StandingsContiner = styled.div`
 export const ClubCard = styled.div`
   display: flex;
   align-items: center;
-  gap: 35px;
   justify-content: space-between;
   padding: 10px 20px;
   border-bottom: 0.3pt solid ${({ theme: { colors } }) => colors.grey};
@@ -34,9 +33,10 @@ export const ClubCard = styled.div`
     cursor: pointer;
     background-color: ${({ theme: { colors } }) => colors.smokeBlue};
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 14px;
     padding: 8px 10px;
+    gap:35px;
   }
 `;
 export const Info = styled.div`
@@ -54,6 +54,7 @@ export const Details = styled.div`
   color: ${({ theme: { colors } }) => colors.smokeWhite};
   flex: 1;
   float: right;
+  max-width:230px;
 `;
 export const Goals = styled.div`
   display: flex;
@@ -66,13 +67,14 @@ export const Value = styled.span`
   text-align: center;
   flex: 1;
   justify-content: center;
+  
   &:last-child {
     color: white;
     font-size: 18px;
     @media (max-width: 400px) {
       font-size: 16px;
       
-  }
+    }
   }
 `;
 export const Position = styled.span`
@@ -82,7 +84,7 @@ export const Position = styled.span`
   line-height: 30px;
   border-radius: 3px;
   font-size: 18px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     width: 25px;
     line-height: 25px;
     font-size: 15px;
@@ -96,7 +98,7 @@ export const Name = styled.span`
 `;
 export const Logo = styled.img`
   width: 37px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     width: 30px;
   }
 `;
@@ -106,7 +108,7 @@ export const Promotion = styled.div`
   padding: 10px;
   gap: 10px;
   font-size: 15px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 13px;
     padding: 6px;
   }

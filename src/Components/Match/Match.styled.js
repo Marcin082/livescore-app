@@ -19,7 +19,7 @@ export const MatchCard = styled.div`
     cursor: pointer;
     
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size:14px;
     height: 35px;
     margin-top: 8px;
@@ -55,9 +55,10 @@ export const Centered = styled.div`
   gap: 30px;
   align-items: center;
   margin-top: 6px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     transform: translateY(0px);
     height: 35px;
+    gap: 20px;
   }
   section {
     display: flex;
@@ -111,7 +112,7 @@ export const Date = styled.span`
     color: ${({ theme: { colors } }) => colors.graphit} !important;
     font-weight: 500;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     display:none;
   }
 `;
@@ -120,7 +121,7 @@ export const Scores = styled.p`
   flex: 2;
   margin: 0;
   padding: 0;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 19px;
   }
 `;
@@ -128,7 +129,7 @@ export const ClubLogo = styled.img`
   max-width: 35px;
   max-height: 35px;
   padding: 0 5px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     max-width: 27px;
     max-height: 27px;
   }
@@ -147,11 +148,11 @@ export const Line = styled.div`
     font-weight: 500;
     transform: translate(15px, 14.3px);
     color: ${({ theme: { colors } }) => colors.blue};
-    @media (max-width: 400px) {
+    @media (max-width: 430px) {
       display:none;
     }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     height: 35px;
   }
 `;
@@ -174,7 +175,7 @@ export const InfoContainer = styled.div`
   display: flex;
   gap: 5px;
   z-index: 2;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
       display:none;
   }
 `;
@@ -189,7 +190,7 @@ export const LiveContainer = styled.div`
   line-height: 30px;
   margin: -25px 0 0 0;
   animation: ${Pulse} 2s infinite;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
       display:none;
   }
 `;

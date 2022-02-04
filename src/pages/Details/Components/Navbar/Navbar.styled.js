@@ -30,7 +30,7 @@ export const Button = styled.button`
   &:hover {
     color: white;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 14px;
     width: 100%;
     border-bottom: 2px solid transparent;

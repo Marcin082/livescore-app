@@ -32,7 +32,7 @@ export const LeagueDetails = styled.div`
     flex-direction: column;
     padding: 10px 0 5px 0;
     text-align: left;
-    @media (max-width: 400px) {
+    @media (max-width: 430px) {
       font-size: 13px ;
     }
   }
@@ -40,11 +40,11 @@ export const LeagueDetails = styled.div`
     font-size: 13px;
     font-weight: 200;
     text-align: left;
-    @media (max-width: 400px) {
+    @media (max-width: 430px) {
       font-size: 11px;
     }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
       transform: translateY(5px);
     }
 `;
@@ -58,7 +58,7 @@ export const CountryLogo = styled.img`
   width: 40px;
   height: 25px;
   object-fit: cover;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
       width: 35px;
       height: 20px;
     }

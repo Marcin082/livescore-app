@@ -20,7 +20,7 @@ export const ActionCard = styled.div`
   color: ${({ theme: { colors } }) => colors.smokeWhite};
   gap: 18px;
   padding: 10px 20px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     padding:5px 5px;
     gap:10px;
     font-size:15px !important;
@@ -35,7 +35,7 @@ export const Action = styled.div`
   gap: 18px;
   font-family: ${({ theme: { fonts } }) =>
     fonts.robotoCondensedFont} !important;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     gap:10px;
   }
 `;
@@ -71,7 +71,7 @@ export const Ball = styled.img`
   width: 30px;
   height: 30px;
   color: black;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     width: 25px;
     height: 25px;
   }
@@ -85,7 +85,7 @@ export const Option = styled.div`
   span {
     color: #757578;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 13px;
   }
 `;
@@ -110,7 +110,7 @@ export const Head = styled.div`
   letter-spacing: 1px;
   font-size: 15px;
   font-weight: 300;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     height: 20px;
     font-size: 14px;
   }
@@ -118,7 +118,7 @@ export const Head = styled.div`
 export const Gate = styled(GiGoalKeeper)`
   width: 20px;
   height: 20px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     width: 15px;
     height: 15px;
   }
@@ -127,7 +127,7 @@ export const Change = styled(FaExchangeAlt)`
   width: 20px;
   height: 20px;
   color: ${({ theme: { colors } }) => colors.blue};
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     width: 15px;
     height: 15px;
   }

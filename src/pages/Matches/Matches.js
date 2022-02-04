@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Calendar from "./Components/Calendar/Calendar";
-import { MatchesContainer, Matchescard } from "./Matches.styled";
+import { MatchesContainer, Matchescard,Logo,Ball } from "./Matches.styled";
 import Navigation from "./Components/Navigation/Navigation";
 import MatchList from "./Components/Matchlist/MatchList";
 import useMatches from "../../Hooks/UseMatches";
 import { CalendarFunctions } from "../../Helpers/CalendarFunctions";
 import Leagues from "./Components/Leagues/Leagues";
 import Input from "./Components/Input/Input";
-import Loading from "../../Components/LoadingPage/Loading";
 import LoadingMatches from "../../Components/LoadingMatches/LoadingMatches";
 
 const Matches = () => {
@@ -53,6 +52,12 @@ const Matches = () => {
       <MatchesContainer onClick={() => setShowResults(false)}>
         {screenWidth > 800 && <Leagues dateformat={dateformat} />}
         <Matchescard>
+          {screenWidth < 800 && 
+            <Logo>
+            <Ball />
+            <span>LiveScore</span>
+            </Logo>
+            }
           <Input showResults={showResults} setShowResults={setShowResults} />
           <Calendar
             dateformat={dateformat}

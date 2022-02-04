@@ -42,7 +42,7 @@ export const Button = styled.button`
     cursor: pointer;
     color: ${({ theme: { colors } }) => colors.smokeWhite};
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 11px;
     letter-spacing:1.3px;
     padding: 0 10px;

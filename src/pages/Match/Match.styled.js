@@ -6,7 +6,7 @@ export const LeagueContainer = styled.div`
   border-radius: 5px;
   margin-top: 20px;
   position: relative;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     margin:0;
     height:inherit;
   }

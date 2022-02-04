@@ -19,7 +19,7 @@ export const ResultContainer = styled.div`
     #243b55,
     #141e30
   ); 
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     width:100%;
     gap: 20px;
     padding: 25px 0 55px 0;
@@ -32,7 +32,7 @@ export const Result = styled.div`
 `;
 export const Status = styled.div`
   font-size: 22px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 18px;
   }
 `;
@@ -48,7 +48,7 @@ export const Live = styled.div`
   text-align: center;
   margin: 0 0 180px 700px;
   animation: ${Pulse} 2s infinite;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     padding: 1.5px 0 3px 0;
     margin: 0 0 135px 290px;
     width: 45px;
@@ -59,7 +59,7 @@ export const MatchTime = styled.div`
   font-size: 16px;
   display: flex;
   gap: 10px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 14px;
   }
 `;
@@ -77,14 +77,14 @@ export const ClubDetails = styled.div`
     color: ${({ theme: { colors } }) => colors.blue} !important;
     font-weight: 600 !important;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     flex:1;
   }
 `;
 export const LiveDetails = styled.span`
   color: red;
   font-size: 22px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 18px;
   }
 `;
@@ -100,7 +100,7 @@ export const MatchDetails = styled.div`
 export const Logo = styled.img`
   width: 130px;
   max-height: 150px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     width: 50px;
     max-height: 70px;
   }

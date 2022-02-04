@@ -31,7 +31,7 @@ export const Player = styled.li`
     color: white;
     cursor: pointer;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 14px;
   }
 `;

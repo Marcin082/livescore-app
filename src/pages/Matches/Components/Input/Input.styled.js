@@ -10,11 +10,11 @@ export const Input = styled.input`
   margin-left: 10px;
   color: ${({ theme: { colors } }) => colors.smokeWhite};
   width:550px;
-  @media (max-width: 900px) and (min-width:401px) {
+  @media (max-width: 900px) and (min-width:431px) {
     width:400px;
     
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     height: 27px;
     font-size: 12px;
     margin:0;
@@ -25,7 +25,7 @@ export const InputCard = styled.div`
   align-items: center;
   justify-content: center;
   width:100%;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     padding: 5px;
     
   }
@@ -39,11 +39,11 @@ export const Results = styled.div`
   background-color: ${({ theme: { colors } }) => colors.grey};
   color: ${({ theme: { colors } }) => colors.smokeWhite};
   z-index: 5;
-  @media (max-width: 900px) and (min-width:401px) {
+  @media (max-width: 900px) and (min-width:431px) {
     width:417.5px;
     
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     width:100%;
     transform:translate(54px,0px);
     height:100%;
@@ -60,14 +60,14 @@ export const Option = styled.div`
     background-color: ${({ theme: { colors } }) => colors.smokeBlue};
     cursor: pointer;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     height: 30px;
     font-size:13px;
   }
 `;
 export const Logo = styled.img`
   max-width: 40px;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     max-width: 30px;
   }
 `;
@@ -95,7 +95,7 @@ export const Search = styled.button`
     background-color: ${({ theme: { colors } }) => colors.smokeBlue};
     color: ${({ theme: { colors } }) => colors.smokeWhite};
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     display:none;
   }
 `;
@@ -107,7 +107,7 @@ export const InputStyle = styled.div`
   width:100%;
   background-color: ${({ theme: { colors } }) => colors.dark};
   border-radius: 0 10px 0 0;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     padding: 0 5px;
     width: 97%;
   }

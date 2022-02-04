@@ -39,7 +39,7 @@ export const LoadMatch = styled.div`
   -moz-box-shadow: 0px 5px 10px 4px rgba(8, 10, 21, 1);
   box-shadow: 0px 5px 10px 4px rgba(8, 10, 21, 1);
   margin: 0 auto;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     height: 35px;
     }
 `;
@@ -54,7 +54,7 @@ export const Name = styled.div`
     width: 170px;
     border-radius: 1px;
     background-color: ${({ theme: { colors } }) => colors.lightGrey};
-    @media (max-width: 400px) {
+    @media (max-width: 430px) {
       width:80px;
       height: 10px;
     }
@@ -63,7 +63,7 @@ export const Name = styled.div`
     height: 25px;
     width: 25px;
     background-color: ${({ theme: { colors } }) => colors.lightGrey};
-    @media (max-width: 400px) {
+    @media (max-width: 430px) {
       height: 16px;
       width: 16px;
     }
@@ -76,7 +76,7 @@ export const Score = styled.div`
   width: 50px;
   background-color: ${({ theme: { colors } }) => colors.lightGrey};
   animation: ${Pulse} 2s infinite;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
       height: 16px;
       width: 26px;
     }

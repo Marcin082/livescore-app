@@ -4,7 +4,7 @@ export const NavCard = styled.div`
   transform: translatey(-42px);
   justify-content: space-around;
   text-align: center;
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     transform: translatey(-28px);
     margin-bottom: 10px;
   }
@@ -34,7 +34,7 @@ export const Option = styled.button`
   &:hover {
     color: white;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 430px) {
     font-size: 13px;
     font-weight: 300;
     border-bottom: 2px solid transparent;
