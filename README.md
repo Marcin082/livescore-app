@@ -12,6 +12,15 @@ The most up-to-date soccer live scores, stats and other info from and more than 
 ![](src/assets/homePage.png)
 ![](src/assets/standings.png)
 ![](src/assets/matchPAge.png)
+
+## Built with
+* JavaScrpit - ES6
+* Css
+* React
+* Styled Components
+* Context API
+* [APIfootbal](https://apifootball.com/)
+
 ## Installation
 
 ### Install Node JS
@@ -42,16 +51,9 @@ npm start
 
 The Application Runs on **localhost:3000**
 
-## Built with
-
-* JavaScrpit - ES6
-* Css
-* React
-* Styled Components
-* [https://apifootball.com/](APIfootbal)
 
 ## Using API
-To use API you have to get Apikey from [https://apifootball.com/](APIfootbal) and paste it in
+To use API you have to get Apikey from [APIfootbal](https://apifootball.com/) and paste it in
 ** APIKEY ** variable in src/Context/MatchesContext
 
 
