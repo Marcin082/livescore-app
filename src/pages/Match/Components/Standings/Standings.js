@@ -25,7 +25,9 @@ import { Link } from "react-router-dom";
 const Standings = () => {
   const { standings, activeMatch, country, getStandings } = useMatches();
   console.log(standings);
-
+  const EUROPA_LEAGUE_BADGE="https://apiv3.apifootball.com/badges/logo_leagues/4_uefa-europa-league.png"
+  const CONFERENCE_LEAGUE_BADGE="https://www.colossusbets.com/blog/wp-content/uploads/2021/09/UECL-970x545-1.png"
+  const DEFAULT_BADGE="https://upload.wikimedia.org/wikipedia/commons/6/6a/A_blank_flag.png"
   const promotions = [];
   let data = [];
   for (let i = 0; i < standings.length; i++) {
@@ -60,7 +62,15 @@ const Standings = () => {
           <section>
             <div>
               <CountryLogo
-                src={country[0].country_logo ? country[0].country_logo : ""}
+                src={
+                  standings[0].league_id!=="4"
+                    ? (standings[0].league_id==="683"?
+                    CONFERENCE_LEAGUE_BADGE:
+                    (country[0].country_logo
+                       ?country[0].country_logo
+                       :(country[0].league_logo?country[0].league_logo:DEFAULT_BADGE)))
+                    : EUROPA_LEAGUE_BADGE
+                }
               />
             </div>
             <div>

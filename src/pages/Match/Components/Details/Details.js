@@ -62,7 +62,7 @@ const Details = () => {
                     ))}
                   {action.what === "sub" && <Change />}
                   {action.what === "card" && <Card card={action.card} />}
-                  <GoalCard>
+                  <GoalCard where={action.where}>
                     {assist && <Assist>({assist})</Assist>}
                     {subPlayer && <Assist>({subPlayer})</Assist>}
 

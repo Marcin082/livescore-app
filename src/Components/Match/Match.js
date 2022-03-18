@@ -68,7 +68,7 @@ const Match = ({ activeOption, match, leagueMatches }) => {
             </ClubLink>
             <ClubLogo
               onError={() => SetSrcHome(DefaultClubLogo)}
-              src={SrcHome}
+              src={homeLogo?homeLogo:SrcHome}
             />
           </NameAndLogo>
           <section>
@@ -89,7 +89,7 @@ const Match = ({ activeOption, match, leagueMatches }) => {
           >
             <ClubLogo
               onError={() => SetSrcAway(DefaultClubLogo)}
-              src={SrcAway}
+              src={awayLogo?awayLogo:SrcAway}
             />
             <ClubLink
               onClick={() => getStandings(leagueId)}

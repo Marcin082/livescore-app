@@ -6,7 +6,7 @@ The most up-to-date soccer live scores, stats and other info from and more than 
 
 ## Demo
 
- Here is a working live demo : [https://marcin082.github.io/livescore-app/](https://marcin082.github.io/)livescore-app/)
+ Here is a working live demo : [https://marcin082.github.io/livescore-app/](DEMO)
 
 
 ![](src/assets/homePage.png)

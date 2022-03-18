@@ -7,5 +7,5 @@ export const CalendarContainer = styled.div`
   text-align: center;
   padding:0 20px;
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.grey};
-  
+  transition:all 2s ease;
 `;

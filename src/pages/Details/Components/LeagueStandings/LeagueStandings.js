@@ -21,17 +21,31 @@ import { Container } from "./LeagueStandings.styled";
 const LeagueStandings = () => {
   const { standings, getStandings } = useMatches();
   console.log(standings);
+  const groups = []
+  const groupStandings = []
 
   const promotions = [];
   let data = [];
-  for (let i = 0; i < standings.length; i++) {
-    if (standings[i].overall_promotion) {
-      promotions.push(standings[i].overall_promotion);
+  if(standings.overall_promotion||standings){
+    for (let i = 0; i < standings.length; i++) {
+      if (standings[i].overall_promotion) {
+        promotions.push(standings[i].overall_promotion);
+      }
+      if (!groups.includes(standings[i].league_round)&&standings[i].league_round) {
+        console.log("aa")
+        groupStandings.push(
+          standings.filter(
+            (club) => club.league_round === standings[i].league_round
+          )
+        );
+        groups.push(standings[i].league_round);
+      }
+  
     }
   }
   data = promotions.filter(function (item, pos) {
-    return promotions.indexOf(item) == pos;
-  });
+      return promotions.indexOf(item) == pos;
+    });  
 
   let i = -1;
   let j = 0;
@@ -43,14 +57,16 @@ const LeagueStandings = () => {
     "#cd5c5c",
     "red",
   ];
+  
+  console.log(groupStandings)
   return (
     <Container>
       <StandingsContiner>
-        {standings.length > 1 ? (
+        {standings.length > 1 ?(
           <>
             <ClubCard className="nav">
-              <Info>
-                <Position>#</Position>
+             <Info>
+                 <Position>#</Position>
                 <div>Team</div>
               </Info>
               <Details>
