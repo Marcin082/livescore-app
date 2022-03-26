@@ -26,7 +26,7 @@ export const MatchesContextProvider = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const APIKEY =
-    "38cf281d00a2ed6ca5558d3e2e9956908dfaaad914e4980b1b2659db3825f93b";
+    "38cf281d00a2ed6ca5558d3e2e9956908dfaaad914e4980b1b2659db3825f93b"; 
 
   const getAllMatches = async (date) => {
     console.log("hello");
@@ -66,6 +66,7 @@ export const MatchesContextProvider = (props) => {
     setMatches(newData);
     setIsLoading(false);
   };
+  
   const getMatch = async (id) => {
     setIsLoading(true);
     const res = await axios.get(
