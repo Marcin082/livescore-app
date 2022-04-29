@@ -26,7 +26,7 @@ export const MatchesContextProvider = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const APIKEY =
-    "38cf281d00a2ed6ca5558d3e2e9956908dfaaad914e4980b1b2659db3825f93b"; 
+    "a4af81a4ce548b584325c892012d9c0637c091a2b10bb97b22cf671db7aea6a5"; 
 
   const getAllMatches = async (date) => {
     console.log("hello");
